@@ -1,0 +1,17 @@
+.container{
+    margin-top: 10px;
+}
+
+.text-center{
+    text-align: center;
+    background-color:  #3399ff;
+    width: 400px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid white ;
+    border-radius: 10px;
+    color:black ;
+    font-size: 30px;
+}
+
