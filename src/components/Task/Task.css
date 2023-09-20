@@ -1,0 +1,34 @@
+.task-container {
+    width: 400px;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 0 2px 4px #00000033;
+    position: relative;
+    background-color: #ff80ff;
+    box-shadow: grey 0px 1px 3px 1px;
+    font-family:Tahoma;
+}
+
+.task-title {
+    margin: 2px;
+    font-weight: bold;
+}
+
+.task-description {
+    margin: 2px;
+}
+
+.task-prority {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #4d004d;
+    color: #fff;
+    padding: 4px;
+    border-radius:0 9px 0 5px;
+    margin-bottom: 4px;
+    font-size: 12px;;
+}

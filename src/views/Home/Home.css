@@ -2,16 +2,29 @@
     margin-top: 10px;
 }
 
-.text-center{
+.app-title{
     text-align: center;
-    background-color:  #3399ff;
+    background-color:  #ffcbff;
     width: 400px;
     display: block;
     margin: 20px auto;
     padding: 10px;
-    border: 2px solid white ;
+    border: 1px solid white ;
     border-radius: 10px;
     color:black ;
     font-size: 30px;
+    box-shadow: 0 2px 4px #00000033;
+    font-family:Tahoma;
 }
 
+.text-center{
+text-align: center;
+font-family:Tahoma;
+
+}
+
+.todo-flex-container{
+    display: flex;
+    justify-content: space-around;
+
+}
