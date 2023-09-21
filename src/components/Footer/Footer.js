@@ -7,9 +7,9 @@ function Footer() {
     <div>
 <footer className="footer">
     <div className='container'>
-    <p className='footer-title'>To Do App || Created by Yogita</p>
-    <p>See On Github :
-        <a href = "https://github.com/yogita-s-24/motiveminder"> github</a></p>
+    <p className='footer-title'>Created By || @Yogita Shete <a href = "https://github.com/yogita-s-24/motiveminder"><i className="fa-brands fa-github github-icon"></i></a></p>
+    {/* <p className='github-icon'>
+        <a href = "https://github.com/yogita-s-24/motiveminder"></a></p> */}
         </div>
     </footer>
     </div>

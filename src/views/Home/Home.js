@@ -42,7 +42,7 @@ const Home = () => {
             </div>
             <div className="todo-flex-container">
               <div>
-                <h1 className="text-center">Show List</h1>
+                <h1 className="text-center">Show List <i class="fa-solid fa-eye show-icon"></i></h1>
                 {taskList.map((taskItem, index) => {
                   const { id, title, description, priority } = taskItem;
       
@@ -58,7 +58,7 @@ const Home = () => {
               </div>
       
               <div>
-                <h1 className="text-center">Add List</h1>
+                <h1 className="text-center">Add List <i className="fa-solid fa-file-circle-plus add-icon"></i></h1>
                 <div className="add-task-container">
                   <form action="">
                    
@@ -73,7 +73,7 @@ const Home = () => {
                       type="text"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
-                      placeholder="Enter Description  Here"
+                      placeholder="Enter Description Here"
                       className="text-input"
                     />
                     <input
