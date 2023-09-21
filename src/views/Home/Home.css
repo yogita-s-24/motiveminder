@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
 .container {
     margin-top: 10px;
 }
@@ -35,7 +40,8 @@
     width: 300px;
     font-size: 18px;
     border: 1px solid #fff;
-    background-color: #ff80ff;
+    /* background-color: #ff80ff; */
+    border: 1px solid #4d004d;
     border-radius: 5px;
     padding: 10px;
     margin: 30px 15px;
@@ -43,6 +49,9 @@
 
 }
 
+::placeholder{
+    color: #4d004d;
+}
 .btn-add-task {
     background-color: #4d004d;
     color: #fff;
@@ -52,4 +61,10 @@
     box-shadow: 0 2px 10px 0 #00000033;
     display: block;
     margin: 40px auto;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: bold;
+    font-family: Tahoma;
+
 }
+

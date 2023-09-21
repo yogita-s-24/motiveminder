@@ -1,0 +1,20 @@
+.footer{
+    background-color: #000000;
+    min-width: auto;
+    margin: 0;
+    padding: 10px;
+    color:white;
+    text-align: center;
+    margin-top: 19px;
+    /* height: 44px; */
+    height: auto;
+}
+
+.container{
+    /* margin-bottom: ; */
+    
+}
+
+.footer-title{
+    margin:10px;
+}

@@ -1,18 +1,20 @@
 .task-container {
     width: 400px;
-    margin: 10px;
+    margin: 20px;
+    color:#4d004d;
     padding: 12px;
     border-radius: 10px;
     border: 1px solid white;
     box-shadow: 0 2px 4px #00000033;
     position: relative;
     background-color: #ff80ff;
-    box-shadow: grey 0px 1px 3px 1px;
+    box-shadow: grey 0px 1px 2px 1px;
     font-family:Tahoma;
 }
 
 .task-title {
     margin: 2px;
+    color:#4d004d;
     font-weight: bold;
 }
 
@@ -23,6 +25,8 @@
 .task-prority {
     margin: 0;
     position: absolute;
+    width: 60px;
+    text-align: center;
     right: 0;
     top: 0;
     background-color: #4d004d;
