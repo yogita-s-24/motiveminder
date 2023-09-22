@@ -9,14 +9,15 @@ body{
 
 .app-title {
     text-align: center;
-    background-color: #ffcbff;
+    /* background-color: #ffcbff; */
+    background-color: #4d004d;
     width: 400px;
     display: block;
     margin: 20px auto;
     padding: 10px;
     border: 1px solid white;
     border-radius: 10px;
-    color: black;
+    color: white;
     font-size: 30px;
     box-shadow: 0 2px 4px #00000033;
     font-family: Tahoma;
@@ -55,12 +56,12 @@ body{
 .btn-add-task {
     background-color: #4d004d;
     color: #fff;
-    padding: 10px 30px;
+    padding: 10px 40px;
     border: none;
     border-radius: 10px;
     box-shadow: 0 2px 10px 0 #00000033;
     display: block;
-    margin: 40px auto;
+    margin: 20px auto;
     cursor: pointer;
     font-size: 14px;
     font-family: bold;
@@ -69,11 +70,19 @@ body{
 }
 
 .show-icon{
+    /* color: #4d004d; */
     font-size: 25px;
-    color: #4d004d;
+
 }
 
 .add-icon{
     font-size: 20px;
-    color: #4d004d;
+    /* color: #4d004d; */
+
 }
+
+ .btn-container{
+    display: flex;
+    margin: 10px auto;
+
+} 

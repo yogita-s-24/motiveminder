@@ -7,7 +7,7 @@
     border: 1px solid white;
     box-shadow: 0 2px 4px #00000033;
     position: relative;
-    background-color: #ff80ff;
+    background-color: #f69ff6;
     box-shadow: grey 0px 1px 2px 1px;
     font-family:Tahoma;
 }
@@ -35,4 +35,27 @@
     border-radius:0 9px 0 5px;
     margin-bottom: 4px;
     font-size: 12px;
+}
+
+.edit-icon{
+    position: absolute;
+    bottom: 5px;
+    right: 35px;
+    cursor: pointer;
+    background-color: white;
+    padding: 2px;
+    border-radius: 30%;
+    box-shadow: grey 0px 1px 2px 1px;
+}
+
+.delete-icon{
+    position: absolute;
+    bottom: 5px;
+    right: 12px;
+    cursor: pointer;
+    background-color: white;
+    padding: 2px;
+    border-radius: 30%;
+    box-shadow: grey 0px 1px 2px 1px;
+
 }
