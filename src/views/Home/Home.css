@@ -86,3 +86,12 @@ body{
     margin: 10px auto;
 
 } 
+
+.tasks-container{
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.tasks-container ::-webkit-scrollbar{
+    width: 2px;
+}

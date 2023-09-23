@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Task from "./../../components/Task/Task";
+import showToast from 'crunchy-toast';
 
 const Home = () => {
   const [taskList, setTaskList] = useState([
@@ -30,6 +31,12 @@ const Home = () => {
     localStorage.setItem("motiveminder", JSON.stringify(tasks));
   };
 
+  const clearInputFields = () => {
+    setTitle("");
+    setDescription("");
+    setPriority("");
+  };
+
   const addTaskToList = () => {
     const randomId = Math.floor(Math.random() * 1000);
 
@@ -46,11 +53,11 @@ const Home = () => {
 
     setTaskList([...taskList, obj]);
 
-    setTitle("");
-    setDescription("");
-    setPriority("");
+    clearInputFields();
 
     saveListToLocalStorage(newTaskList);
+
+    showToast('Task added successfully!', 'success',3000);
   };
 
   const removeTaskFromList = (id) => {
@@ -68,6 +75,9 @@ const Home = () => {
     setTaskList([...tempArray]);
 
     saveListToLocalStorage(tempArray);
+
+    showToast('Task deleted successfully!', 'alert',3000);
+
   };
 
   const setTaskEditable = (id) => {
@@ -80,40 +90,40 @@ const Home = () => {
       if (task.id === id) {
         currentEditTask = task;
       }
-    })
+    });
 
     setTitle(currentEditTask.title);
     setDescription(currentEditTask.description);
     setPriority(currentEditTask.priority);
-  }
+  };
 
- const updateTask = () => {
-  let indexToUpdate;
+  const updateTask = () => {
+    let indexToUpdate;
 
-  taskList.forEach((task,i)=>{
-    if(task.id===id){
-      indexToUpdate=i;
-    }
-  })
+    taskList.forEach((task, i) => {
+      if (task.id === id) {
+        indexToUpdate = i;
+      }
+    });
 
-  const tempArray =taskList;
-  tempArray[indexToUpdate]= {
-  id: id,
-  title: title,
-  description: description,
-  priority: priority
- }
+    const tempArray = taskList;
+    tempArray[indexToUpdate] = {
+      id: id,
+      title: title,
+      description: description,
+      priority: priority,
+    };
 
- setTaskList([...tempArray])
- saveListToLocalStorage(tempArray)
+    setTaskList([...tempArray]);
+    saveListToLocalStorage(tempArray);
 
- setId(0);
- setTitle('');
- setDescription('');
- setPriority('');
- setIsEdit(false);
+    setId(0);
+    clearInputFields();
+    setIsEdit(false);
 
- }
+    showToast('Task updated successfully!', 'info',3000);
+
+  };
 
   return (
     <>
@@ -125,22 +135,24 @@ const Home = () => {
           <h1 className="text-center">
             Show Task <i className="fa-brands fa-stack-exchange show-icon"></i>
           </h1>
-          {taskList.map((taskItem, index) => {
-            const { id, title, description, priority } = taskItem;
 
-            return (
-              <Task
-                id={id}
-                title={title}
-                description={description}
-                priority={priority}
-                key={index}
-                removeTaskFromList={removeTaskFromList}
-                // obj={taskItem}
-                setTaskEditable={setTaskEditable}
-              />
-            );
-          })}
+          <div className="tasks-container">
+            {taskList.map((taskItem, index) => {
+              const { id, title, description, priority } = taskItem;
+              return (
+                <Task
+                  id={id}
+                  title={title}
+                  description={description}
+                  priority={priority}
+                  key={index}
+                  removeTaskFromList={removeTaskFromList}
+                  // obj={taskItem}
+                  setTaskEditable={setTaskEditable}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <div>
@@ -197,6 +209,6 @@ const Home = () => {
       </div>
     </>
   );
-}
+};
 
 export default Home;
