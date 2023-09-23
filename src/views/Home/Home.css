@@ -92,6 +92,6 @@ body{
     overflow-y: scroll;
 }
 
-.tasks-container ::-webkit-scrollbar{
-    width: 2px;
+.tasks-container::-webkit-scrollbar{
+    width:2px;
 }

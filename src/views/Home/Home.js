@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Task from "./../../components/Task/Task";
 import showToast from 'crunchy-toast';
+import { saveListToLocalStorage } from "./../../util/localStorage";
 
 const Home = () => {
   const [taskList, setTaskList] = useState([
@@ -27,9 +28,16 @@ const Home = () => {
     }
   }, []);
 
-  const saveListToLocalStorage = (tasks) => {
-    localStorage.setItem("motiveminder", JSON.stringify(tasks));
-  };
+ const findTaskIndexById = (taskId) =>{
+  let index;
+
+  taskList.forEach((task, i) => {
+    if (task.id === taskId) {
+      index = i;
+    }
+  });
+  return index;
+ }
 
   const clearInputFields = () => {
     setTitle("");
@@ -37,7 +45,33 @@ const Home = () => {
     setPriority("");
   };
 
+  const checkReuiredFields = () =>{
+    if(!title){
+      showToast('Title is required!', 'alert', 3000 );
+      return false;
+     }
+ 
+     if(!description){
+       showToast('Description is required!', 'alert' ,  3000 ) ;
+       return false;
+
+     }
+ 
+     if(!priority){
+       showToast('Priority is required!' ,'alert', 3000);
+       return false;
+
+     }
+     return true;
+
+  }
+
   const addTaskToList = () => {
+
+    if(checkReuiredFields()=== false){
+      return;
+    };
+   
     const randomId = Math.floor(Math.random() * 1000);
 
     const obj = {
@@ -61,13 +95,7 @@ const Home = () => {
   };
 
   const removeTaskFromList = (id) => {
-    let index;
-
-    taskList.forEach((task, i) => {
-      if (task.id === id) {
-        index = i;
-      }
-    });
+    const index = findTaskIndexById(id);
 
     const tempArray = taskList;
     tempArray.splice(index, 1);
@@ -83,14 +111,10 @@ const Home = () => {
   const setTaskEditable = (id) => {
     setIsEdit(true);
     setId(id);
-    let currentEditTask;
-    //find the object with matching ID and update it's values to what is in state
 
-    taskList.forEach((task) => {
-      if (task.id === id) {
-        currentEditTask = task;
-      }
-    });
+    const index = findTaskIndexById(id);
+
+    const currentEditTask = taskList[index];
 
     setTitle(currentEditTask.title);
     setDescription(currentEditTask.description);
@@ -98,13 +122,12 @@ const Home = () => {
   };
 
   const updateTask = () => {
-    let indexToUpdate;
 
-    taskList.forEach((task, i) => {
-      if (task.id === id) {
-        indexToUpdate = i;
-      }
-    });
+    if(checkReuiredFields()=== false){
+      return;
+    };
+
+    const indexToUpdate = findTaskIndexById(id);
 
     const tempArray = taskList;
     tempArray[indexToUpdate] = {
@@ -186,7 +209,7 @@ const Home = () => {
                 className="text-input"
               />
 
-              <div className="btn-container">
+              {/* <div className="btn-container">
                 {isEdit ? (
                   <button
                     type="button"
@@ -202,6 +225,16 @@ const Home = () => {
                     Add{" "}
                   </button>
                 )}
+              </div> */}
+              <div className="btn-container">
+              <button
+                    type="button"
+                    className="btn-add-task"
+                    onClick={()=>{
+                      isEdit ? updateTask() : addTaskToList()
+                    }}>
+                    {isEdit ? 'Update' : 'Add'}
+                  </button>
               </div>
             </form>
           </div>
