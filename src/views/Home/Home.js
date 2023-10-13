@@ -54,13 +54,11 @@ const Home = () => {
      if(!description){
        showToast('Description is required!', 'alert' ,  3000 ) ;
        return false;
-
      }
  
      if(!priority){
        showToast('Priority is required!' ,'alert', 3000);
        return false;
-
      }
      return true;
 
@@ -174,7 +172,7 @@ const Home = () => {
                   setTaskEditable={setTaskEditable}
                 />
               );
-            })}
+          })}
           </div>
         </div>
 
